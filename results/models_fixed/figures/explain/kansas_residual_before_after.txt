@@ -1,0 +1,1 @@
+kansas : les deux histogrammes utilisent la meme echelle pour montrer le recentrage apporte par la calibration.

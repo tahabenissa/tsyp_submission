@@ -1,0 +1,55 @@
+# Fusion, trust score, responses and the decision product (step 4).
+# Every value used by detect/fusion.py, detect/trust_score.py,
+# response/policy.py and product/water_balance.py is here.
+
+output_directory: "results/eval/trust"
+
+fusion:
+  # Logistic regression on daily detector features (detect/fusion.py).
+  # Fitted on the attacked and clean runs of the OTHER sites (leave one site
+  # out), so the probability at a site never saw that site's data.
+  regularization_c: 1.0
+  persistence_days: 30        # window for the "how many alarms recently" features
+  reliability_bins: 10
+
+trust:
+  # risk_t = risk_{t-1} + a * (p_t - risk_{t-1}),  trust = 1 - risk
+  # a = fall_rate when the probability is above the current risk (trust falls
+  # fast), recovery_rate when below (trust recovers slowly).
+  fall_rate: 0.5
+  recovery_rate: 0.05         # about 14 days to recover half of the lost trust
+  # Band limits are quantiles of the trust reached on CLEAN days of the
+  # fitting sites, then frozen: de-weighting starts below the level clean
+  # days go under deweight_clean_share of the time, quarantine below the
+  # level they go under quarantine_clean_share of the time.
+  deweight_clean_share: 0.05
+  quarantine_clean_share: 0.005
+
+response:
+  # De-weighting and quarantine replace only the IMPLICATED variables: those
+  # whose standardized reference residual has a mean beyond
+  # implicated_sd over the last implicated_days days.  A detected replay (copy
+  # distance below the tolerance) implicates the whole record.  Rain is never
+  # replaced otherwise: the official attacks do not touch it, detector S does
+  # not monitor it, and the point-to-grid difference in rain is so large that
+  # substituting it changes decisions on its own.
+  implicated_days: 14
+  implicated_sd: 1.0
+  # A verification request is raised when trust is in the de-weight band and
+  # falling, at most once per this many days.
+  verification_every_days: 14
+
+product:
+  # 30-day water balance = sum of (rain - FAO-56 reference evapotranspiration).
+  window_days: 30
+  # Decision levels, per site and calendar month, from the clean train years:
+  #   0 normal, 1 dry (below the dry quantile), 2 severe drought (below the
+  #   severe quantile; the index-insurance trigger).
+  dry_quantile: 0.30
+  severe_quantile: 0.10
+  # Station elevation is not in the data; 0 m is used (it only enters the
+  # psychrometric constant and the clear-sky radiation, a small effect).
+  elevation_m: 0.0
+  # A decision is judged over the attack and the window_days that follow
+  # (the 30-day balance keeps the attack in it for that long).
+  judge_after_days: 30

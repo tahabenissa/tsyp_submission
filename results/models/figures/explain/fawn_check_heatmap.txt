@@ -1,0 +1,1 @@
+fawn : chaque nombre est le pire statut entre la moyenne et la mediane de la saison pour le residu de reference.

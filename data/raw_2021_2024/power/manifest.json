@@ -1,0 +1,17 @@
+{
+  "power_28.682_-81.886_20210101_20241231.json": {
+    "bytes": 121023,
+    "sha256": "89f7e2dd0b0e1236d48d5e51a692e2d54f8252f54ca3941c6a24d20a9e245c51",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=28.682&lon=-81.886&start=20210101&end=20241231"
+  },
+  "power_32.480_-109.930_20210101_20241231.json": {
+    "bytes": 120124,
+    "sha256": "9566e59389d3cf6d5d7baba11895c836860d00079b92a8d012737bc872b0f780",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=32.48&lon=-109.93&start=20210101&end=20241231"
+  },
+  "power_39.209_-96.592_20210101_20241231.json": {
+    "bytes": 120083,
+    "sha256": "cd9d7ade8b65c714e13eec1166315d9c5c601cf8c1ab973341ca5dc49ba88858",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=39.209&lon=-96.592&start=20210101&end=20241231"
+  }
+}

@@ -1,0 +1,15 @@
+# Standard test: replay of seven samples (F3).
+# Seven consecutive days are replaced by seven genuine consecutive days copied
+# from source_offset_days earlier. Every variable is replayed (variables: null),
+# as an attacker replaying a whole record would.
+
+attack: replay
+length_days: 7
+variables: null
+min_history_days: 365
+
+sweep:
+  # 7 = the week just before, 28 = a month before, 364 = the same week last year
+  source_offset_days: [7, 28, 364]
+
+seeds: [0, 1, 2]

@@ -1,0 +1,8 @@
+attack,relative_to,attacks that changed the decision without defence,still wrong with the full system,wrong AND issued as TRUSTED
+drift,range,129,116/129 = 90% (84%-94%),55/129 = 43% (34%-51%)
+drift,std,99,96/99 = 97% (91%-99%),72/99 = 73% (63%-81%)
+drift,value,127,113/127 = 89% (82%-93%),61/127 = 48% (40%-57%)
+replay,,21,18/21 = 86% (65%-95%),1/21 = 5% (1%-23%)
+step,range,82,70/82 = 85% (76%-91%),23/82 = 28% (19%-39%)
+step,std,65,64/65 = 98% (92%-100%),51/65 = 78% (67%-87%)
+step,value,76,66/76 = 87% (77%-93%),29/76 = 38% (28%-49%)

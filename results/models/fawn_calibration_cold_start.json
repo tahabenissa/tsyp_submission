@@ -1,0 +1,228 @@
+{
+  "fit_calendar_days": 90,
+  "fit_end": "2023-03-31",
+  "fit_start": "2023-01-01",
+  "mode": "cold_start",
+  "variables": {
+    "precip_mm": {
+      "global": {
+        "available": true,
+        "fit_days": 32,
+        "offset": -1.2077809670235702,
+        "rainy_days": 32,
+        "spread": 1.1564273270367353
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 21,
+          "offset": -1.0986122886681098,
+          "rainy_days": 21,
+          "spread": 1.2752270038382816
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 32,
+          "offset": -1.2077809670235702,
+          "rainy_days": 32,
+          "spread": 1.1564273270367353
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 11,
+          "offset": -1.4486999273073202,
+          "rainy_days": 11,
+          "spread": 0.7789300169543985
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 32,
+          "offset": -1.2077809670235702,
+          "rainy_days": 32,
+          "spread": 1.1564273270367353
+        }
+      },
+      "transform": "log_ratio"
+    },
+    "rh_pct": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": 3.242999999999995,
+        "rainy_days": null,
+        "spread": 6.209128799999992
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": 1.8989999999999867,
+          "rainy_days": null,
+          "spread": 4.437421799999992
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": 3.242999999999995,
+          "rainy_days": null,
+          "spread": 6.209128799999992
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": 8.054000000000002,
+          "rainy_days": null,
+          "spread": 1.6293774000000054
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": 3.242999999999995,
+          "rainy_days": null,
+          "spread": 6.209128799999992
+        }
+      },
+      "transform": "difference"
+    },
+    "solar_mj_m2": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -1.2504999999999997,
+        "rainy_days": null,
+        "spread": 1.0348548000000006
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -1.0679999999999996,
+          "rainy_days": null,
+          "spread": 0.744265200000001
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -1.2504999999999997,
+          "rainy_days": null,
+          "spread": 1.0348548000000006
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -1.9619999999999997,
+          "rainy_days": null,
+          "spread": 1.1519802000000015
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -1.2504999999999997,
+          "rainy_days": null,
+          "spread": 1.0348548000000006
+        }
+      },
+      "transform": "difference"
+    },
+    "temp_c": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.44349999999999934,
+        "rainy_days": null,
+        "spread": 0.8450820000000017
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.1039999999999992,
+          "rainy_days": null,
+          "spread": 0.7902258000000019
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.44349999999999934,
+          "rainy_days": null,
+          "spread": 0.8450820000000017
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.8079999999999998,
+          "rainy_days": null,
+          "spread": 0.5055666000000015
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.44349999999999934,
+          "rainy_days": null,
+          "spread": 0.8450820000000017
+        }
+      },
+      "transform": "difference"
+    },
+    "wind_ms": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.1186150787828691,
+        "rainy_days": null,
+        "spread": 0.15596594248203224
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.11077324876457659,
+          "rainy_days": null,
+          "spread": 0.1519507452519613
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.1186150787828691,
+          "rainy_days": null,
+          "spread": 0.15596594248203224
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.12748907816856006,
+          "rainy_days": null,
+          "spread": 0.14131787771729792
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.1186150787828691,
+          "rainy_days": null,
+          "spread": 0.15596594248203224
+        }
+      },
+      "transform": "log_ratio"
+    }
+  }
+}

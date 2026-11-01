@@ -1,0 +1,231 @@
+{
+  "fit_calendar_days": 90,
+  "fit_end": "2021-03-31",
+  "fit_start": "2021-01-01",
+  "mode": "cold_start",
+  "variables": {
+    "precip_mm": {
+      "global": {
+        "available": true,
+        "fit_days": 16,
+        "offset": -0.8517486551683862,
+        "rainy_days": 16,
+        "spread": 1.2109172109224575
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 10,
+          "offset": -0.8831258548404212,
+          "rainy_days": 10,
+          "spread": 0.7898932723956731
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 16,
+          "offset": -0.8517486551683862,
+          "rainy_days": 16,
+          "spread": 1.2109172109224575
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 6,
+          "offset": -0.4721960809925148,
+          "rainy_days": 6,
+          "spread": 0.9568545160318298
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 16,
+          "offset": -0.8517486551683862,
+          "rainy_days": 16,
+          "spread": 1.2109172109224575
+        }
+      },
+      "transform": "log_ratio"
+    },
+    "rh_pct": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": 1.0600000000000005,
+        "rainy_days": null,
+        "spread": 7.034937000000001
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": 1.9200000000000017,
+          "rainy_days": null,
+          "spread": 5.4856200000000035
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": 1.0600000000000005,
+          "rainy_days": null,
+          "spread": 7.034937000000001
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -2.3200000000000003,
+          "rainy_days": null,
+          "spread": 7.101653999999998
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": 1.0600000000000005,
+          "rainy_days": null,
+          "spread": 7.034937000000001
+        }
+      },
+      "transform": "difference"
+    },
+    "solar_mj_m2": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.6300000000000008,
+        "rainy_days": null,
+        "spread": 0.4966709999999999
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.48999999999999844,
+          "rainy_days": null,
+          "spread": 0.5337359999999991
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.6300000000000008,
+          "rainy_days": null,
+          "spread": 0.4966709999999999
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.9100000000000001,
+          "rainy_days": null,
+          "spread": 0.444780000000001
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.6300000000000008,
+          "rainy_days": null,
+          "spread": 0.4966709999999999
+        }
+      },
+      "transform": "difference"
+    },
+    "temp_c": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.22499999999999964,
+        "rainy_days": null,
+        "spread": 1.3121010000000002
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.71,
+          "rainy_days": null,
+          "spread": 1.3788179999999994
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.22499999999999964,
+          "rainy_days": null,
+          "spread": 1.3121010000000002
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": 0.5,
+          "rainy_days": null,
+          "spread": 0.6819959999999999
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.22499999999999964,
+          "rainy_days": null,
+          "spread": 1.3121010000000002
+        }
+      },
+      "transform": "difference"
+    },
+    "wind_ms": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.054800754957540374,
+        "rainy_days": null,
+        "spread": 0.1673517999374364
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.06269859421556394,
+          "rainy_days": null,
+          "spread": 0.18469340933643155
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.054800754957540374,
+          "rainy_days": null,
+          "spread": 0.1673517999374364
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.054724899689246605,
+          "rainy_days": null,
+          "spread": 0.13469958261289522
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.054800754957540374,
+          "rainy_days": null,
+          "spread": 0.1673517999374364
+        }
+      },
+      "transform": "log_ratio"
+    }
+  },
+  "witness_models": {
+    "rh_pct": null
+  }
+}

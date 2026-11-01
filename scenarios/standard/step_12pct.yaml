@@ -1,0 +1,28 @@
+# Standard test: 12 % step bias (F1).
+# From a random onset day every value of one variable is moved by 12 %.
+# Each combination under "sweep", for each seed, is one run.
+
+attack: step
+magnitude: 0.12
+length_days: 60          # attacked days; null = until the end of the series
+min_history_days: 365    # clean days kept before the earliest possible onset
+
+sweep:
+  variables: [T2M, T2M_MAX, T2M_MIN, RH2M, WS2M, PRECTOTCORR, ALLSKY_SFC_SW_DWN]
+  sign: [1, -1]
+  # The three readings of "12 %" until the organizers confirm one:
+  # value = of the reading, range = of the variable's span, std = of its standard deviation.
+  relative_to: [value, range, std]
+
+seeds: [0, 1, 2]
+
+# Where zero is for "of the value". Empty = as given (degrees C for temperature).
+# For "12 % of the value in kelvin" use, e.g., {T2M: -273.15}.
+value_origin: {}
+
+# Physical limits the attacked value is cut back to (null = no limit).
+limits:
+  RH2M: [0, 100]
+  WS2M: [0, null]
+  PRECTOTCORR: [0, null]
+  ALLSKY_SFC_SW_DWN: [0, null]

@@ -1,0 +1,16 @@
+site,indicator,extreme_days,ordinary_days,flagged_share_extreme,flagged_share_ordinary
+azmet,detector S (combined),44,322,0.022727272727272728,0.006211180124223602
+azmet,CUSUM,44,322,0.0,0.003105590062111801
+azmet,Mahalanobis,44,322,0.022727272727272728,0.003105590062111801
+azmet,station not trusted (de-weighted or quarantined),44,322,0.0,0.021739130434782608
+azmet,station quarantined,44,322,0.0,0.0
+fawn,detector S (combined),42,324,0.047619047619047616,0.009259259259259259
+fawn,CUSUM,42,324,0.047619047619047616,0.006172839506172839
+fawn,Mahalanobis,42,324,0.0,0.0030864197530864196
+fawn,station not trusted (de-weighted or quarantined),42,324,0.07142857142857142,0.030864197530864196
+fawn,station quarantined,42,324,0.0,0.0
+kansas,detector S (combined),34,332,0.11764705882352941,0.006024096385542169
+kansas,CUSUM,34,332,0.058823529411764705,0.0030120481927710845
+kansas,Mahalanobis,34,332,0.058823529411764705,0.0030120481927710845
+kansas,station not trusted (de-weighted or quarantined),34,332,0.20588235294117646,0.05421686746987952
+kansas,station quarantined,34,332,0.0,0.0

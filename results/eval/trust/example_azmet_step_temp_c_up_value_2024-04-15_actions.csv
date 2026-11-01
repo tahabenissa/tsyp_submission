@@ -1,0 +1,8 @@
+date,action,trust,reason
+2024-03-23,verification request,0.5798322223359433,week-long gap against NASA POWER
+2024-05-08,verification request,0.5387108211776848,"month-long gap against NASA POWER; temp_c up, step since about 2024-04-12"
+2024-05-25,verification request,0.4764688647545512,month-long gap against NASA POWER
+2024-06-08,verification request,0.35973274694606894,"month-long gap against NASA POWER; temp_c up, step since about 2024-05-08"
+2024-06-13,quarantine,0.31232144495271263,"month-long gap against NASA POWER; temp_c up, step since about 2024-05-08"
+2024-06-13,alert,0.31232144495271263,"month-long gap against NASA POWER; temp_c up, step since about 2024-05-08"
+2024-07-05,release,0.5944854889408442,agrees with its context again

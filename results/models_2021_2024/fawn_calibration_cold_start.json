@@ -1,0 +1,231 @@
+{
+  "fit_calendar_days": 90,
+  "fit_end": "2021-03-31",
+  "fit_start": "2021-01-01",
+  "mode": "cold_start",
+  "variables": {
+    "precip_mm": {
+      "global": {
+        "available": true,
+        "fit_days": 41,
+        "offset": -0.8419070117523272,
+        "rainy_days": 41,
+        "spread": 1.615462309218924
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 27,
+          "offset": -1.013914510354824,
+          "rainy_days": 27,
+          "spread": 1.669632440947509
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 41,
+          "offset": -0.8419070117523272,
+          "rainy_days": 41,
+          "spread": 1.615462309218924
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 14,
+          "offset": -0.7324249668195121,
+          "rainy_days": 14,
+          "spread": 1.7831388085777697
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 41,
+          "offset": -0.8419070117523272,
+          "rainy_days": 41,
+          "spread": 1.615462309218924
+        }
+      },
+      "transform": "log_ratio"
+    },
+    "rh_pct": {
+      "global": {
+        "available": true,
+        "fit_days": 86,
+        "offset": 3.2959999999999994,
+        "rainy_days": null,
+        "spread": 4.605696900000006
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": 3.870999999999995,
+          "rainy_days": null,
+          "spread": 4.089010799999993
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 86,
+          "offset": 3.2959999999999994,
+          "rainy_days": null,
+          "spread": 4.605696900000006
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 27,
+          "offset": 2.1030000000000086,
+          "rainy_days": null,
+          "spread": 4.778419799999977
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 86,
+          "offset": 3.2959999999999994,
+          "rainy_days": null,
+          "spread": 4.605696900000006
+        }
+      },
+      "transform": "difference"
+    },
+    "solar_mj_m2": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.9935,
+        "rainy_days": null,
+        "spread": 0.8932664999999993
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.8929999999999989,
+          "rainy_days": null,
+          "spread": 0.8851121999999966
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.9935,
+          "rainy_days": null,
+          "spread": 0.8932664999999993
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -1.1179999999999986,
+          "rainy_days": null,
+          "spread": 0.7590912000000006
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.9935,
+          "rainy_days": null,
+          "spread": 0.8932664999999993
+        }
+      },
+      "transform": "difference"
+    },
+    "temp_c": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.6535000000000011,
+        "rainy_days": null,
+        "spread": 0.862873200000001
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.47799999999999976,
+          "rainy_days": null,
+          "spread": 0.9666551999999988
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.6535000000000011,
+          "rainy_days": null,
+          "spread": 0.862873200000001
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.7390000000000008,
+          "rainy_days": null,
+          "spread": 0.6731003999999956
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.6535000000000011,
+          "rainy_days": null,
+          "spread": 0.862873200000001
+        }
+      },
+      "transform": "difference"
+    },
+    "wind_ms": {
+      "global": {
+        "available": true,
+        "fit_days": 90,
+        "offset": -0.10524996366734135,
+        "rainy_days": null,
+        "spread": 0.17290222434144598
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 59,
+          "offset": -0.12094855198433949,
+          "rainy_days": null,
+          "spread": 0.16930429627209942
+        },
+        "JJA": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.10524996366734135,
+          "rainy_days": null,
+          "spread": 0.17290222434144598
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 31,
+          "offset": -0.037010937856616626,
+          "rainy_days": null,
+          "spread": 0.18061117298838236
+        },
+        "SON": {
+          "available": true,
+          "fallback": "global",
+          "fit_days": 90,
+          "offset": -0.10524996366734135,
+          "rainy_days": null,
+          "spread": 0.17290222434144598
+        }
+      },
+      "transform": "log_ratio"
+    }
+  },
+  "witness_models": {
+    "rh_pct": null
+  }
+}

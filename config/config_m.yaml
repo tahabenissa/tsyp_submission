@@ -1,0 +1,42 @@
+# Detector M: one-class learning on clean residual windows.
+# Inside the training years of config/split.yaml (2021-2023):
+#   model type   candidates fitted on 2021-2022, chosen on attacks injected in 2023
+#   thresholds   leave one year out: fit on two years, score the third, 3 times
+#   final model  fitted on every clean 2021-2023 window
+# The test year 2024 is never used here; the evaluation scores it once.
+random_state: 42
+
+tuning:
+  fit_end: "2022-12-31"
+  start: "2023-01-01"
+  end: "2023-12-31"
+
+detector:
+  models:
+    - "Isolation Forest"
+    - "ECOD"
+    - "COPOD"
+    - "HBOS"
+    - "KNN"
+    - "LOF"
+  contamination: 0.01
+  clean_threshold_quantile: 0.99
+  # auto: global, per site or per site and season, whichever keeps the false-alarm
+  # rate nearest the target on a held-out training year (leave one year out)
+  threshold_mode: "auto"
+  min_season_samples: 20
+  model_directory: "results/models_detector_m"
+
+# Attacks injected in the tuning year to choose the model: never used to fit it.
+# The official meaning of 12% is still ambiguous, so test both std and range.
+attack_validation:
+  onset: "2023-02-01"
+  step_magnitude: 0.12
+  step_length_days: 60
+  drift_magnitude: 0.15
+  drift_ramp_days: 90
+  drift_hold_days: 0
+  relative_to: ["std", "range"]
+  replay_onset: "2023-04-01"
+  replay_length_days: 7
+  replay_offsets_days: [7, 28, 364]

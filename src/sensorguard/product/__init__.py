@@ -1,0 +1,1 @@
+"""Decision indicator, signed product."""

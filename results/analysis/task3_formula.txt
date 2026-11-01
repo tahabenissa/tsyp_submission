@@ -1,0 +1,4 @@
+effect_size = (percent / 100 * mean_validation_station_value) / fitted_spread
+where percent is taken from config key 'effect_size_percent' (= 12),
+mean_validation_station_value is the mean of the station series over the validation year,
+and fitted_spread is the global fitted spread from the reference calibration fit on the training year.

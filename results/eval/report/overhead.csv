@@ -1,0 +1,15 @@
+quantity,value,unit
+"record size, fixed part (header + signature)",118.0,bytes
+"record payload, 5 variables",21.0,bytes
+"record size, total",139.0,bytes
+overhead relative to the payload,5.62,x
+sign one record (station side),62.4,µs
+"verify one record (signature, certificate, sequence, chain)",150.5,µs
+append one record to the hash-chained ledger,2.4,µs
+"whole defence on one station, 4 years of daily data",20.96,s
+whole defence per daily reading,14.35,ms
+peak Python memory of that run,29.5,MiB
+"detector S fitted state per station (thresholds, AR, covariance)",1444.0,bytes
+replay-matcher history per station (730 days x 4 variables),23521.0,bytes
+detector M saved model (3 sites),4.18,MiB
+fusion model and trust bands,2089.0,bytes

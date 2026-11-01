@@ -1,0 +1,17 @@
+# Team-approved development and held-out sites for data acquisition.
+#
+# Do not add coordinates, date ranges, or roles until the team has approved
+# them.  An empty list is intentional: scripts/fetch_data.py will make no
+# network requests when no sites are configured.
+#
+# Each approved entry must use this form (quote dates to keep the format
+# explicit):
+#
+# sites:
+#   - id: example-site
+#     latitude: 0.0
+#     longitude: 0.0
+#     start: "YYYY-MM-DD"
+#     end: "YYYY-MM-DD"
+#     role: development  # or held_out
+sites: []

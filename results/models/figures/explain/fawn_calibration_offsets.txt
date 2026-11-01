@@ -1,0 +1,1 @@
+fawn : chaque barre est l'ecart median appris et chaque barre d'erreur est sa dispersion robuste.

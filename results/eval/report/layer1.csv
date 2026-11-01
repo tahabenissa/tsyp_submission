@@ -1,0 +1,7 @@
+attack,position,attacked_days,rejected_by_layer1,reasons,ledger_intact,ledger_first_broken,attacked_values_reaching_detection
+step 12 % temp,P1,60,0,,True,,60
+step 12 % temp,P2,60,60,forged,True,,0
+step 12 % temp,P3,60,0,,False,2024-04-15,60
+replay 7 days,P1,7,0,,True,,7
+replay 7 days,P2,7,7,replay,True,,0
+replay 7 days,P3,7,0,,False,2024-04-15,7

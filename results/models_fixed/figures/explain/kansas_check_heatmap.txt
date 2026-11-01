@@ -1,0 +1,1 @@
+kansas : chaque cellule est le pire statut de la saison (PASS, WARN, FAIL ou NA) pour le residu de reference, en train complet et en demarrage rapide ; NA signifie un indicateur non defini ou une saison non couverte par l'entrainement du demarrage rapide.

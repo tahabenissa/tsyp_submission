@@ -1,0 +1,228 @@
+{
+  "fit_calendar_days": 365,
+  "fit_end": "2023-12-31",
+  "fit_start": "2023-01-01",
+  "mode": "full_train",
+  "variables": {
+    "precip_mm": {
+      "global": {
+        "available": true,
+        "fit_days": 98,
+        "offset": -1.461192347993849,
+        "rainy_days": 98,
+        "spread": 1.2739543930733697
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 22,
+          "offset": -0.5106965748557375,
+          "rainy_days": 22,
+          "spread": 0.7700267840218463
+        },
+        "JJA": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 46,
+          "offset": -1.9798348294477495,
+          "rainy_days": 46,
+          "spread": 1.068853940559236
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 12,
+          "offset": -1.559863800678587,
+          "rainy_days": 12,
+          "spread": 1.1436871884100062
+        },
+        "SON": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 18,
+          "offset": -1.4077043597113548,
+          "rainy_days": 18,
+          "spread": 0.8197925860803162
+        }
+      },
+      "transform": "log_ratio"
+    },
+    "rh_pct": {
+      "global": {
+        "available": true,
+        "fit_days": 365,
+        "offset": 2.8599999999999994,
+        "rainy_days": null,
+        "spread": 9.963071999999999
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 90,
+          "offset": -1.0150000000000006,
+          "rainy_days": null,
+          "spread": 9.029034000000005
+        },
+        "JJA": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": 8.760000000000002,
+          "rainy_days": null,
+          "spread": 5.0408399999999975
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -3.164999999999999,
+          "rainy_days": null,
+          "spread": 5.885921999999998
+        },
+        "SON": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 91,
+          "offset": 6.359999999999999,
+          "rainy_days": null,
+          "spread": 7.501956000000003
+        }
+      },
+      "transform": "difference"
+    },
+    "solar_mj_m2": {
+      "global": {
+        "available": true,
+        "fit_days": 365,
+        "offset": -0.7100000000000009,
+        "rainy_days": null,
+        "spread": 0.8450820000000003
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 90,
+          "offset": -0.6049999999999995,
+          "rainy_days": null,
+          "spread": 0.5114969999999996
+        },
+        "JJA": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -0.7350000000000012,
+          "rainy_days": null,
+          "spread": 1.4084699999999988
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -0.8900000000000006,
+          "rainy_days": null,
+          "spread": 0.7709520000000006
+        },
+        "SON": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 91,
+          "offset": -0.7200000000000024,
+          "rainy_days": null,
+          "spread": 0.6375179999999943
+        }
+      },
+      "transform": "difference"
+    },
+    "temp_c": {
+      "global": {
+        "available": true,
+        "fit_days": 365,
+        "offset": -1.2399999999999984,
+        "rainy_days": null,
+        "spread": 2.016335999999999
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 90,
+          "offset": 0.17499999999999982,
+          "rainy_days": null,
+          "spread": 1.363992
+        },
+        "JJA": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -2.5950000000000006,
+          "rainy_days": null,
+          "spread": 1.0748849999999994
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -0.745000000000001,
+          "rainy_days": null,
+          "spread": 1.2898620000000014
+        },
+        "SON": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 91,
+          "offset": -2.1700000000000017,
+          "rainy_days": null,
+          "spread": 2.0015099999999966
+        }
+      },
+      "transform": "difference"
+    },
+    "wind_ms": {
+      "global": {
+        "available": true,
+        "fit_days": 365,
+        "offset": -0.1941560144409575,
+        "rainy_days": null,
+        "spread": 0.18853396488090188
+      },
+      "seasons": {
+        "DJF": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 90,
+          "offset": -0.15352917570745975,
+          "rainy_days": null,
+          "spread": 0.1735095528328499
+        },
+        "JJA": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -0.2767661932244294,
+          "rainy_days": null,
+          "spread": 0.18771380838003623
+        },
+        "MAM": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 92,
+          "offset": -0.12213791322483064,
+          "rainy_days": null,
+          "spread": 0.16262572242576395
+        },
+        "SON": {
+          "available": true,
+          "fallback": null,
+          "fit_days": 91,
+          "offset": -0.20802991350416158,
+          "rainy_days": null,
+          "spread": 0.2253149037136941
+        }
+      },
+      "transform": "log_ratio"
+    }
+  }
+}

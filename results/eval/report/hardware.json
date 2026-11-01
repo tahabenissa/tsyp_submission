@@ -1,0 +1,14 @@
+{
+  "python": "3.12.10",
+  "os": "Windows 11 (10.0.26200)",
+  "machine": "AMD64",
+  "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+  "ram_gb": "19.7",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "matplotlib": "3.11.2"
+  }
+}

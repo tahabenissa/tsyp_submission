@@ -1,0 +1,38 @@
+# Official standard scenario (S-STD, docs/05-evaluation-plan.md), file mode.
+#
+# Every combination below is one attacked run at every development site.
+# Detectors are fitted on the train years (config/split.yaml) of the CLEAN
+# series; every attack falls inside the validation year, so the fit is shared
+# by all runs of a site (the runner checks that no attack touches the train
+# years).
+
+output_directory: "results/eval/standard"
+
+# The organizers have not said what "12 %" is relative to, so all three
+# readings are run (attacks/official.py, base_quantity).
+relative_to: [value, range, std]
+signs: [1, -1]
+
+# Variables monitored by detector S (precip_mm is not: its residual is
+# undefined on dry days).
+variables: [temp_c, rh_pct, wind_ms, solar_mj_m2]
+
+step:
+  magnitude: 0.12
+  length_days: 60
+  # one onset per season
+  onsets: ["2024-01-15", "2024-04-15", "2024-07-15", "2024-10-15"]
+
+drift:
+  magnitude: 0.15
+  ramp_days: [30, 60, 90]
+  hold_days: 30
+  onsets: ["2024-03-01", "2024-08-15"]
+
+replay:
+  length_days: 7
+  source_offset_days: [7, 28, 364]
+  onsets: ["2024-01-15", "2024-04-15", "2024-07-15", "2024-10-15"]
+
+# Detector M (detect/learned.py) is scored from its saved artifacts.
+include_detector_m: true

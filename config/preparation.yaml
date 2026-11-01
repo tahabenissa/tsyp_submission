@@ -1,0 +1,133 @@
+# All tunable preparation-model settings live here.
+random_seed: 42
+input_directory: "data/clean_2021_2024"
+output_directory: "results/models_2021_2024"
+analysis_directory: "results/analysis_2021_2024"
+
+season_definition:
+  DJF: [12, 1, 2]
+  MAM: [3, 4, 5]
+  JJA: [6, 7, 8]
+  SON: [9, 10, 11]
+
+variables:
+  temp_c:
+    transform: difference
+    spread_floor: 0.01
+    temporal_enabled: true
+  rh_pct:
+    transform: difference
+    spread_floor: 0.01
+    temporal_enabled: true
+    # Witness = ridge regression of station humidity on POWER humidity,
+    # temperature, dew point, rain, wind, solar and season (train dates only).
+    reference_model: regression
+  wind_ms:
+    transform: log_ratio
+    spread_floor: 0.001
+    temporal_enabled: true
+  precip_mm:
+    transform: log_ratio
+    spread_floor: 0.001
+    temporal_enabled: false
+  solar_mj_m2:
+    transform: difference
+    spread_floor: 0.01
+    temporal_enabled: true
+
+log_ratio_pseudocount: 0.1
+witness_ridge_alpha: 10.0
+rainy_day_threshold_mm: 0.1
+mad_scale: 1.4826
+effect_size_percent: 12
+cold_start_days: 90
+cold_start_harmonic_order: 0
+harmonic_order: 2
+harmonic_period_days: 365.25
+ar_order: 1
+extreme_tail_fraction: 0.05
+minimum_fit_days: 3
+missing_season_fallback: global
+
+check_limits:
+  residual_center_pass: 0.25
+  residual_center_warn: 0.50
+  extreme_ratio_pass: 1.50
+  extreme_ratio_warn: 2.00
+  seasonal_sd_ratio_pass: 1.50
+  seasonal_sd_ratio_warn: 2.00
+  reference_autocorrelation_pass: 0.30
+  reference_autocorrelation_warn: 0.50
+
+plot:
+  histogram_bins: 20
+  dpi: 150
+  explain_directory: "figures/explain"
+  figure_width: 14
+  row_height: 2.6
+  line_width: 1.2
+  bar_width: 0.34
+  histogram_alpha: 0.60
+  raw_station_color: "tab:blue"
+  raw_power_color: "tab:orange"
+  calibrated_station_color: "tab:green"
+  full_train_color: "tab:blue"
+  cold_start_color: "tab:orange"
+  before_color: "tab:gray"
+  after_color: "tab:green"
+  zero_line_color: "black"
+  grid_alpha: 0.25
+  autocorrelation_ymin: -1.0
+  autocorrelation_ymax: 1.0
+  heatmap_pass_color: "#2E8B57"
+  heatmap_warn_color: "#F0AD4E"
+  heatmap_fail_color: "#C94C4C"
+  heatmap_text_color: "black"
+  heatmap_na_color: "#9CA3AF"
+  heatmap_mode: "full_train"
+  heatmap_residual_family: "reference"
+  heatmap_metrics: ["mean", "median"]
+  status_scores:
+    FAIL: 0
+    WARN: 1
+    PASS: 2
+    NA: 3
+  explanatory_residual_family: "reference"
+  # Histogram x-range: 1st and 99th percentiles of the pooled values.  The same
+  # range is used for every panel of a histogram figure.
+  histogram_percentiles: [1, 99]
+  # Residual time series: y-axis clipped to this range (default -5 to 5).
+  # Points beyond the limit are marked with a small triangle at the border.
+  timeseries_y_limit: [-5, 5]
+  # full_vs_cold_start: SD panel y-limit max (default 3).  Ideal lines are 0
+  # for the mean and 1 for the SD.
+  sd_ymax: 3
+  # GUI read-only view: a second, smaller copy of each explain figure is saved
+  # in the gui/ subfolder at gui_dpi with gui_figure_width inches of width.
+  gui_dpi: 100
+  gui_figure_width: 8
+  gui_subfolder: "gui"
+
+variable_labels:
+  temp_c: "Temperature (°C)"
+  rh_pct: "Humidite relative (%)"
+  wind_ms: "Vent (m/s)"
+  precip_mm: "Pluie (mm/jour)"
+  solar_mj_m2: "Rayonnement solaire (MJ/m²/jour)"
+variable_offset_labels:
+  temp_c: "Ecart (°C)"
+  rh_pct: "Ecart (%)"
+  wind_ms: "Log-ratio (sans unite)"
+  precip_mm: "Log-ratio (sans unite)"
+  solar_mj_m2: "Ecart (MJ/m²/jour)"
+
+sites:
+  fawn:
+    station_file: "fawn_daily_clean.csv"
+    power_file: "power_28.682_-81.886_daily_clean.csv"
+  azmet:
+    station_file: "azmet_daily_clean.csv"
+    power_file: "power_32.48_-109.93_daily_clean.csv"
+  kansas:
+    station_file: "kansas_daily_clean.csv"
+    power_file: "power_39.209_-96.592_daily_clean.csv"

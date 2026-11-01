@@ -1,0 +1,24 @@
+# Standard test: gradual drift up to 15 % (F2).
+# The offset grows in a straight line from about 0 to 15 % over the ramp,
+# then stays at 15 % for hold_days.
+
+attack: drift
+magnitude: 0.15
+hold_days: 0
+min_history_days: 365
+
+sweep:
+  variables: [T2M, T2M_MAX, T2M_MIN, RH2M, WS2M, PRECTOTCORR, ALLSKY_SFC_SW_DWN]
+  sign: [1, -1]
+  relative_to: [value, range, std]
+  ramp_days: [30, 60, 90]
+
+seeds: [0, 1, 2]
+
+value_origin: {}
+
+limits:
+  RH2M: [0, 100]
+  WS2M: [0, null]
+  PRECTOTCORR: [0, null]
+  ALLSKY_SFC_SW_DWN: [0, null]

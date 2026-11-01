@@ -1,0 +1,12 @@
+{
+  "azmet_az09_2023-01-01_2024-12-31.csv": {
+    "bytes": 26191,
+    "sha256": "5fe456b6ec1a030966139b4c37e3b4dadd2d7928f691a7d0840f7f626ceeef57",
+    "source": "AZMET daily API (api.azmet.arizona.edu)"
+  },
+  "kansas_Manhattan_2023-01-01_2024-12-31.csv": {
+    "bytes": 31974,
+    "sha256": "c83fccf34bdf118fc03dff25d70923598a52a4bcfaf713afbecfd47c19d4c88e",
+    "source": "Kansas Mesonet API via ksmesopy"
+  }
+}

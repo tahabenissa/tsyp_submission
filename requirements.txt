@@ -1,0 +1,28 @@
+# Every package the project uses, pinned to the versions it was run with.
+# Install:  .venv\Scripts\python -m pip install -r requirements.txt
+# Python 3.12.  Tkinter (the GUIs in tools/) ships with Python.
+
+# core
+numpy==2.5.4
+pandas==3.0.6
+PyYAML==6.0.3          # config and scenario files ("import yaml")
+scipy==1.18.1          # detector S (chi-square and normal quantiles)
+matplotlib==3.11.2     # figures
+
+# trust module (layer 1)
+cryptography==50.0.2   # Ed25519 keys and signatures
+
+# detector M and the fusion
+scikit-learn==1.9.1    # logistic regression, robust scaling, metrics
+pyod==3.6.7            # one-class models (LOF, KNN, ...)
+joblib==1.6.0          # saved detector M model
+
+# data download
+requests==2.34.2       # NASA POWER, FAWN
+ksmesopy==0.7.3        # Kansas Mesonet (only needed to re-download)
+python-dotenv==1.2.4   # scripts/check_cdse.py (Copernicus credentials from .env)
+
+# tests and reports
+pytest==9.1.1
+tabulate==0.10.0       # Markdown tables in results/*/summary.md
+pypdf==6.21.2          # report PDF metadata (scripts/build_report.py; the PDF is printed by Microsoft Edge)

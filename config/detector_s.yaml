@@ -1,0 +1,160 @@
+# Detector S: statistical tests only (no ML, no fusion, no confidence score,
+# no attack generator).  Every parameter below is committed to this file; nothing
+# may be hard-coded in the detector code.
+
+# Where Detector S writes all of its outputs.  This directory must be empty
+# before the first run.
+output_directory: "results/detector_s"
+figures_directory: "results/detector_s/figures"
+
+# Frozen standardized residuals produced by the preparation run (not inputs!).  The
+# preparation code writes these; Detector S only reads them.
+standardized_residual_directory: "results/models_2021_2024"
+
+# How the run is split.  Fitting uses only 2021-2023; evaluation uses 2024.
+train_start: "2021-01-01"
+train_end: "2023-12-31"
+validation_start: "2024-01-01"
+validation_end: "2024-12-31"
+
+# False-alarm target used to set PASS/WARN/FAIL and derived train thresholds.
+false_alarm_target: 0.01
+alarm_warn_rate_multiple: 2.0
+alarm_fail_rate_multiple: 3.0
+alarm_max_distinct_episodes: 3
+
+# Logical variables and the residual columns produced by the preparation run.
+# This is the only place that names the files/columns the detectors read.
+variables:
+  - temp_c
+  - rh_pct
+  - wind_ms
+  - precip_mm
+  - solar_mj_m2
+residual_variables:
+  temp_c: reference_temp_c
+  rh_pct: reference_rh_pct
+  wind_ms: reference_wind_ms
+  precip_mm: reference_precip_mm
+  solar_mj_m2: reference_solar_mj_m2
+# Variables actually scored by the detectors.  precip_mm is excluded: its
+# residual is NaN on dry-dry days (station and POWER both <= 0.1 mm), about
+# 40 to 70 percent of days depending on the site, so including it would blind
+# every detector most of the time.  Chi-square degrees of freedom (Mahalanobis)
+# come from the length of this list.
+monitored_variables:
+  - temp_c
+  - rh_pct
+  - wind_ms
+  - solar_mj_m2
+
+# Detectors whose flags make up the combined daily flag (OR).  trend is left
+# out: on FAWN and Kansas it flags 9 to 20 percent of clean 2024 days, because
+# once a 150-day window crosses the threshold it stays over it for weeks.  It
+# is still computed and reported.
+combined_flag_detectors:
+  - cusum
+  - replay
+  - mahalanobis
+
+# ---
+# Slow-shift removal (detector_s/baseline.py).  Each day, subtract the median
+# residual of the window_days days that end gap_days before it.  Clean
+# residuals shift by 0.2 to 0.7 sd between years; without this the CUSUM adds
+# that offset up and alarms on clean data.  Past days only; the gap keeps a new
+# attack out of its own baseline.
+# ---
+baseline:
+  # Off: measured on 3 sites it did not lower CUSUM false alarms overall
+  # (FAWN 4 -> 2 per year, Kansas 3 -> 5).  Kept for the ablation.
+  enabled: false
+  window_days: 180
+  gap_days: 60
+  min_days: 90
+
+# ---
+# Mahalanobis: robust centre/scale + regularized covariance.
+# Threshold is a chi-square quantile on the train period, not on 2024.
+# ---
+mahalanobis:
+  train_min_complete_days: 50
+  quantile: 0.999
+  shrinkage: 0.10
+  random_seed: 42
+
+# ---
+# CUSUM on the residuals, after whitening with an AR model fitted on train.
+# k = slack in standard deviations: errors inside +/-k cancel out, a lasting
+# offset larger than k builds up.  The sums restart at zero after every alarm,
+# so an alarm is one event.  threshold: a number, or "auto" = the lowest h
+# giving at most target_false_alarms_per_year alarms per year on the clean
+# train years.  Alarms closer than merge_gap_days form one episode.  NaN in a
+# variable holds its sums for the day; that day's score is NaN and flag 0.
+# ---
+cusum:
+  ar_order: 1
+  slack: 0.5
+  threshold: auto
+  target_false_alarms_per_year: 1.0
+  merge_gap_days: 14
+  min_train_days_per_variable: 100
+  nan_policy: hold
+  # true = CUSUM on residuals whitened with the train AR model;
+  # false = CUSUM on the raw standardized residuals (no AR filter).
+  ar_whitening: true
+
+# ---
+# Change-point dating: done by the CUSUM episodes (onset = day after the
+# alarming sum was last at zero).  Episode typing: Mann-Kendall on the
+# whitened series from onset to end; |z| above the two-sided normal quantile
+# at 1 - drift_alpha / 2 -> "drift", otherwise "step".  test_variables is only
+# used by ChangePointDetector, which runs the same CUSUM on a subset.
+# ---
+change_point:
+  drift_alpha: 0.05
+  test_variables:
+    - temp_c
+    - rh_pct
+    - wind_ms
+    - solar_mj_m2
+
+# ---
+# Trend: rolling Mann-Kendall on prewhitened residuals (AR(1) prediction
+# errors from the train model; Mann-Kendall assumes independent days).  Score =
+# largest |z| across variables.  threshold: a number, or "auto" = the larger
+# of the theoretical critical value at significance_level (two-sided,
+# Bonferroni-corrected for the number of variables) and the
+# lowest value giving at most target_false_alarms_per_year separate alarms per
+# year on the clean train years.
+# ---
+trend:
+  window_days: 150
+  prewhiten: true
+  threshold: auto
+  significance_level: 0.001
+  target_false_alarms_per_year: 1.0
+  min_train_days: 100
+  # Maximum share of missing days allowed inside a rolling window.  A window
+  # with more missing days than this is not scored (score NaN, flag 0).
+  max_missing_share: 0.20
+  # When true, the scoring window starts with the last window_days of the
+  # train residuals (past data only), so early days get a full window.
+  use_train_history: true
+
+# ---
+# Replay: compare every block of N days of the STATION VALUES (not the
+# residuals) with every earlier block, lag 1 to max_lag_days.  A replayed
+# block is a copy of an earlier one, so its distance is near zero; natural
+# weather never repeats a week across four variables.  Distance is the mean
+# absolute difference in train standard deviations; a day is flagged when its
+# distance is below `tolerance`.
+# ---
+replay:
+  block_days: 7
+  max_lag_days: 730
+  tolerance: 0.05
+  columns:
+    temp_c: station_temp_c
+    rh_pct: station_rh_pct
+    wind_ms: station_wind_ms
+    solar_mj_m2: station_solar_mj_m2

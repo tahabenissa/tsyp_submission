@@ -1,0 +1,27 @@
+{
+  "power_28.682_-81.886_20230101_20241231.json": {
+    "bytes": 68353,
+    "sha256": "62c7bea174b94403335c72f567578a30f909f348f9f51e8ead9dff915ce07037",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=28.68165&lon=-81.88565&start=20230101&end=20241231"
+  },
+  "power_32.480_-109.930_20230101_20241231.json": {
+    "bytes": 60518,
+    "sha256": "8222ba5208f91a2405cfe2f014fd208d7f206caa2365de9ed46acdfba6c6d22d",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=32.48&lon=-109.93&start=20230101&end=20241231"
+  },
+  "power_36.800_10.180_20230101_20241231.json": {
+    "bytes": 60843,
+    "sha256": "321872124005b105460d4ed15191f378212d8110ad67997e2874f869cab80f0c",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=36.8&lon=10.18&start=20230101&end=20241231"
+  },
+  "power_36.800_10.180_20240101_20240131.json": {
+    "bytes": 3362,
+    "sha256": "7133d24fd39d1d3cee17e3bf0bbc8be995313a4e9a27d439ce9057c992794acd",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=36.8&lon=10.18&start=20240101&end=20240131"
+  },
+  "power_39.209_-96.592_20230101_20241231.json": {
+    "bytes": 60493,
+    "sha256": "25e6de10c77d42e78ab50bd92d86fac9459f321bfd2e5c05745e70fdbe8533c7",
+    "source": "https://power.larc.nasa.gov/api/temporal/daily/point?lat=39.20857&lon=-96.59169&start=20230101&end=20241231"
+  }
+}

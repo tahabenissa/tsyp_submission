@@ -1,0 +1,10 @@
+Effect size of a 12 percent bias
+
+For variables with transform 'difference' (temp_c, rh_pct, solar_mj_m2):
+  effect_size = (effect_size_percent / 100) * mean(station value over training period) / fitted_spread
+
+For variables with transform 'log_ratio' (wind_ms, precip_mm):
+  effect_size = ln(1 + effect_size_percent / 100) / fitted_spread
+
+fitted_spread = global MAD-based spread from reference calibration fitted on the training period.
+effect_size_percent is read from config key 'effect_size_percent'.

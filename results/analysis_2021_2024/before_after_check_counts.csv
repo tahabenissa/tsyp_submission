@@ -1,0 +1,13 @@
+site,mode,residual_family,PASS_before,WARN_before,FAIL_before,NA_before,source_before,PASS_after,WARN_after,FAIL_after,NA_after,source_after
+azmet,cold_start,reference,24,10,26,0,models,18,9,13,25,models_fixed
+azmet,cold_start,temporal,5,3,47,0,models,6,8,14,32,models_fixed
+azmet,full_train,reference,39,9,12,0,models,42,12,11,0,models_fixed
+azmet,full_train,temporal,24,17,14,0,models,30,12,6,12,models_fixed
+fawn,cold_start,reference,13,13,34,0,models,14,14,12,25,models_fixed
+fawn,cold_start,temporal,6,2,47,0,models,8,5,15,32,models_fixed
+fawn,full_train,reference,24,13,23,0,models,31,16,18,0,models_fixed
+fawn,full_train,temporal,32,13,10,0,models,33,9,6,12,models_fixed
+kansas,cold_start,reference,17,17,26,0,models,14,12,14,25,models_fixed
+kansas,cold_start,temporal,7,2,46,0,models,10,7,11,32,models_fixed
+kansas,full_train,reference,32,14,14,0,models,42,12,11,0,models_fixed
+kansas,full_train,temporal,32,13,10,0,models,36,10,2,12,models_fixed

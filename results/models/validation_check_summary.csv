@@ -1,0 +1,13 @@
+site,mode,residual_family,FAIL,PASS,WARN
+azmet,cold_start,reference,28,25,12
+azmet,cold_start,temporal,52,5,3
+azmet,full_train,reference,13,41,11
+azmet,full_train,temporal,15,27,18
+fawn,cold_start,reference,38,13,14
+fawn,cold_start,temporal,52,6,2
+fawn,full_train,reference,23,27,15
+fawn,full_train,temporal,13,33,14
+kansas,cold_start,reference,27,19,19
+kansas,cold_start,temporal,50,8,2
+kansas,full_train,reference,14,34,17
+kansas,full_train,temporal,11,32,17
